@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <h2>Mis Propiedades</h2>
+  <div *ngIf="properties && properties.length > 0">
+    <div class="row">
+      <div class="col" *ngFor="let property of properties">
+        <div class="card mb-3 property-card">
+          <div class="card-body">
+            <h4 class="card-title">{{ property.name }}</h4>
+            <p class="card-text">
+              <strong>Departamento:</strong> {{ property.departmentName }}
+            </p>
+            <p class="card-text">
+              <strong>Municipio:</strong> {{ property.municipalityName }}
+            </p>
+            <div class="btn-group mt-3" role="group" aria-label="Acciones de propiedad">
+              <button class="btn" (click)="editProperty(property.id!!)">Editar</button>
+              <button class="btn" (click)="seeProperty(property.id!!)">Detalles</button>
+              <button class="btn" (click)="deactivate(property.id!!)">Desactivar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="properties && properties.length === 0">
+    <p>No tienes propiedades asociadas.</p>
+  </div>
+</div>

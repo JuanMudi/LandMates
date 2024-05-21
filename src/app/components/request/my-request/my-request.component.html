@@ -1,0 +1,65 @@
+<div class="table-container">
+    <h2>Mis Solicitudes de Reserva</h2>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Nombre del predio</th>
+          <th>Fecha y hora de solicitud</th>
+          <th>Fecha de llegada</th>
+          <th>Fecha de salida</th>
+          <th>Valor</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookings?.asLessee">
+          <td>{{ booking.propertyName }}</td>
+          <td>{{ booking.startDateObject | date: 'dd/MM/yyyy HH:mm' }}</td>
+          <td>{{ booking.startDateObject | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ booking.endDateObject | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ '$'+ booking.totalPrice }}</td>
+          <td>{{ booking.status }}</td>
+          <td>
+            <button *ngIf="booking.status === 'REVIEW'" (click)="handleRating(booking)">Rate</button>
+            <button *ngIf="booking.status === 'ACCEPTED'" (click)="handlePayment(booking)">Pay</button>
+
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2>Solicitudes de Propiedades</h2>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Nombre del solicitante</th>
+          <th>Fecha y hora de solicitud</th>
+          <th>Fecha de llegada</th>
+          <th>Fecha de salida</th>
+          <th>Valor</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookings?.asLessor">
+          <td>{{ booking.propertyName }}</td>
+          <td>{{ booking.startDateObject | date: 'dd/MM/yyyy HH:mm' }}</td>
+          <td>{{ booking.startDateObject | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ booking.endDateObject | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ '$'+ booking.totalPrice}}</td>
+          <td>{{ booking.status }}</td>
+          <td>
+            <button *ngIf="booking.status === 'ACTIVE'" (click)="handleAccept(booking)">Accept</button>
+            <button *ngIf="booking.status === 'ACTIVE'" (click)="handleReject(booking)">Reject</button>
+            <button *ngIf="booking.status === 'REVIEW'" (click)="handleRating(booking)">Rate</button>
+
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

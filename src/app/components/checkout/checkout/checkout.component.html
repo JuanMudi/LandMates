@@ -1,0 +1,98 @@
+<div class="back">
+  <div class="checkout-container">
+    <div class="left-side">
+      <div class="text-box">
+        <h1 class="home-heading">{{ booking?.propertyName || 'Modern Home' }}</h1>
+        <hr class="left-hr" />
+        <p class="home-desc"><em>Entire home</em> for <em>{{ booking?.guests || 2 }} guest(s)</em></p>
+        <p class="home-desc">
+          <em>{{ booking?.startDateObject | date:'EEE, MMM d, y' || 'Tue, July 23, 2022' }}</em> to <em>{{ booking?.endDateObject | date:'EEE, MMM d, y' || 'Thu, July 25, 2022' }}</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="right-side">
+      <div class="receipt">
+        <h2 class="receipt-heading">Receipt Summary</h2>
+        <div>
+          <table class="table">
+            <tr>
+              <td>{{ booking?.totalPrice/totalDays | number:'1.2-2' }} x {{ totalDays }} night(s)</td>
+              <td class="price">{{ booking ? booking.totalPrice : 'Error' }} USD</td>
+            </tr>
+            <tr class="total">
+              <td>Total</td>
+              <td class="price">{{ booking?.totalPrice }} USD</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="payment-info">
+        <h3 class="payment-heading">Payment Information</h3>
+        <form [formGroup]="paymentForm" (ngSubmit)="handlePayment()" novalidate>
+          <div>
+            <label for="full-name">Full Name</label>
+            <input id="full-name" formControlName="fullName" placeholder="Satoshi Nakamoto" required type="text" />
+            <div *ngIf="paymentForm.get('fullName')?.invalid && paymentForm.get('fullName')?.touched" class="error">
+              Full Name is required.
+            </div>
+          </div>
+
+          <div>
+            <label for="credit-card-num">Card Number
+              <span class="card-logos">
+                <i class="card-logo fa-brands fa-cc-visa"></i>
+                <i class="card-logo fa-brands fa-cc-amex"></i>
+                <i class="card-logo fa-brands fa-cc-mastercard"></i>
+                <i class="card-logo fa-brands fa-cc-discover"></i>
+              </span>
+            </label>
+            <input id="credit-card-num" formControlName="creditCardNum" placeholder="1111-2222-3333-4444" required type="text" />
+            <div *ngIf="paymentForm.get('creditCardNum')?.invalid && paymentForm.get('creditCardNum')?.touched" class="error">
+              Card Number must be 16 digits.
+            </div>
+          </div>
+
+          <div>
+            <p class="expires">Expires on:</p>
+            <div class="card-experation">
+              <label for="expiration-month">Month</label>
+              <select id="expiration-month" formControlName="expirationMonth" required>
+                <option value="">Month:</option>
+                <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+              </select>
+
+              <label class="expiration-year">Year</label>
+              <select id="experation-year" formControlName="expirationYear" required>
+                <option value="">Year</option>
+                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+              </select>
+              <div *ngIf="(paymentForm.get('expirationMonth')?.invalid || paymentForm.get('expirationYear')?.invalid) && (paymentForm.get('expirationMonth')?.touched || paymentForm.get('expirationYear')?.touched)" class="error">
+                Expiration date is required.
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label for="cvv">CVV</label>
+            <input id="cvv" formControlName="cvv" placeholder="415" type="text" required />
+            <a class="cvv-info" href="#">What is CVV?</a>
+            <div *ngIf="paymentForm.get('cvv')?.invalid && paymentForm.get('cvv')?.touched" class="error">
+              CVV must be 3 digits.
+            </div>
+          </div>
+
+          <button class="btn" [disabled]="paymentForm.invalid">
+            <i class="fa-solid fa-lock"></i> Book Securely
+          </button>
+        </form>
+
+        <p class="footer-text">
+          <i class="fa-solid fa-lock"></i>
+          Your credit card information is encrypted
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

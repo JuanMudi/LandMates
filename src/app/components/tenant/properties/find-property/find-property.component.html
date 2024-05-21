@@ -1,0 +1,68 @@
+<div class="container mt-5">
+    <h2>Buscar Propiedad Propiedades</h2>
+
+    <div class="row">
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Buscar por nombre" [(ngModel)]="searchName">
+      </div>
+      <div class="col-md-4">
+        <select class="form-control" id="department" [(ngModel)]="selectedDepartment" name="department" required (change)="onDepartmentChange()">
+          <option value="">Buscar por departamento</option>
+          <option *ngFor="let department of departments | async" [value]="department.id">
+                {{ department.name }}
+            </option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <select class="form-control" [(ngModel)]="searchMunicipality">
+          <option value="">Buscar por municipio</option>
+          <option *ngFor="let municipality of municipalities | async" [value]="municipality.id">
+            {{ municipality.name }}     </option>        
+    </select>
+      </div>
+
+      <div class="col-md-4">
+        <button class="btn btn-primary" (click)="searchProperties()">Buscar</button>
+      </div>
+
+      <hr/>
+
+      <div class="container mt-5">
+        <h2>Propiedades para rentar</h2>
+        <div *ngIf="properties && properties.length > 0">
+          <div class="row">
+            <div class="col-md-4" *ngFor="let property of properties">
+              <div class="card mb-3">
+                <div class="card-body property-card">
+                  <h4 class="card-title">{{ property.name }}</h4>
+                  <p class="card-text">
+                    Departamento: 
+                    <ng-container>
+                      {{ property.departmentName }}
+                    </ng-container>
+                  </p>
+                  <p class="card-text">
+                    Municipio: 
+                    <ng-container >
+                      {{ property.municipalityName }}
+                    </ng-container>
+                    <ng-template #loadingMunicipality>Loading...</ng-template>
+                  </p>
+                  <a class="btn btn-secondary" (click)="seeProperty(property.id!!)">Detalles</a>    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="properties && properties.length === 0">
+          <p>No tienes propiedades asociadas.</p>
+        </div>
+      </div>
+      
+
+
+      
+
+
+    
+  </div>

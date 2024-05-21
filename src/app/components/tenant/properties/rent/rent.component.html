@@ -1,0 +1,47 @@
+<form [formGroup]="rentForm" (ngSubmit)="onSubmit()">
+    <div>
+      <h2>Rentar propiedad</h2>
+  
+      <!-- Campo de fecha inicial -->
+      <div>
+        <label for="fechaInicial">Fecha Inicial:</label>
+        <input type="date" id="fechaInicial" formControlName="fechaInicial" />
+        <div *ngIf="rentForm.get('fechaInicial')?.invalid && (rentForm.get('fechaInicial')?.dirty || rentForm.get('fechaInicial')?.touched)">
+          <div *ngIf="rentForm.get('fechaInicial')?.errors?.['required']">
+            La fecha inicial es obligatoria.
+          </div>
+        </div>
+      </div>
+  
+      <!-- Campo de fecha final -->
+      <div>
+        <label for="fechaFinal">Fecha Final:</label>
+        <input type="date" id="fechaFinal" formControlName="fechaFinal"/>
+        <div *ngIf="rentForm.get('fechaFinal')?.invalid && (rentForm.get('fechaFinal')?.dirty || rentForm.get('fechaFinal')?.touched)">
+          <div *ngIf="rentForm.get('fechaFinal')?.errors?.['required']">
+            La fecha final es obligatoria.
+          </div>
+        </div>
+      </div>
+  
+      <!-- Campo de cantidad de personas -->
+      <div>
+        <label for="cantidadPersonas">Cantidad de personas:</label>
+        <input type="number" id="cantidadPersonas" formControlName="cantidadPersonas" />
+        <div *ngIf="rentForm.get('cantidadPersonas')?.invalid && (rentForm.get('cantidadPersonas')?.dirty || rentForm.get('cantidadPersonas')?.touched)">
+          <div *ngIf="rentForm.get('cantidadPersonas')?.errors?.['required']">
+            La cantidad de personas es obligatoria.
+          </div>
+          <div *ngIf="rentForm.get('cantidadPersonas')?.errors?.['min']">
+            La cantidad de personas debe ser al menos 1.
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Botón de enviar -->
+    <div>
+      <button type="submit">Rentar propiedad</button>
+    </div>
+  </form>
+  

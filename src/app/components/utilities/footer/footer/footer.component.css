@@ -1,0 +1,5 @@
+.footer {
+    position: fixed; /* Make the footer fixed to the viewport */
+    bottom: 0; /* Position it at the bottom of the viewport */
+    width: 100%; /* Make it span the full width of the viewport */
+  }

@@ -1,0 +1,78 @@
+<!-- Create Property Form -->
+<form #propertyForm="ngForm">
+    <div>
+        <h2>Ver propiedad</h2>
+
+        <!-- Campo de nombre -->
+        <div>
+            <label for="name">Nombre (obligatorio):</label>
+            <input type="text" id="name" [(ngModel)]="property.name" name="name" readonly />
+            <!-- Mensaje de error -->
+        </div>
+
+        <!-- Campo de departamento -->
+        <div>
+            <label for="department">Departamento (obligatorio):</label>
+            <input type="text" id="department" [(ngModel)]="property.departmentName" name="department" readonly/>
+            
+        </div>
+
+        <!-- Campo de municipio -->
+        <div>
+            <label for="municipality">Municipio (obligatorio):</label>
+            <input type="text" id="municipality" [(ngModel)]="property.municipalityName" name="municipality" readonly/>
+            
+    
+        </div>
+
+
+        <!-- Campo de descripción -->
+        <div>
+            <label for="description">Descripción (obligatorio):</label>
+            <textarea id="description" [(ngModel)]="property.description" name="description" readonly></textarea>
+            
+        </div>
+
+        <!-- Campo de cantidad de habitaciones -->
+        <div>
+            <label for="rooms">Cantidad de habitaciones (obligatorio):</label>
+            <input type="number" id="rooms" [(ngModel)]="property.rooms" name="rooms" min="1" readonly />
+        
+        </div>
+
+        <!-- Campo de cantidad de baños -->
+        <div>
+            <label for="bathrooms">Cantidad de baños (obligatorio):</label>
+            <input type="number" id="bathrooms" [(ngModel)]="property.bathrooms" name="bathrooms" min="1" readonly />
+            
+        </div>
+
+        <!-- Campo de permitir mascotas -->
+        <div>
+            <label for="petFriendly">Permite mascotas:</label>
+            <input type="checkbox" id="petFriendly" [(ngModel)]="property.petFriendly" name="petFriendly" readonly />
+        </div>
+
+        <!-- Campo de piscina -->
+        <div>
+            <label for="pool">Tiene piscina:</label>
+            <input type="checkbox" id="pool" [(ngModel)]="property.pool" name="pool" readonly />
+        </div>
+
+        <!-- Campo de asador -->
+        <div>
+            <label for="bbq">Tiene asador:</label>
+            <input type="checkbox" id="bbq" [(ngModel)]="property.bbq" name="bbq"  readonly/>
+        </div>
+
+        <!-- Campo de valor por noche -->
+        <div>
+            <label for="pricePerNight">Valor por noche:</label>
+            <input type="number" id="pricePerNight" [(ngModel)]="property.pricePerNight" name="pricePerNight" min="0" readonly />
+            
+        </div>
+
+        <!-- Mensaje de error -->
+        
+    </div>
+</form>

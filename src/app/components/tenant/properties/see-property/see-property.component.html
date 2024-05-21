@@ -1,0 +1,65 @@
+<form [formGroup]="propertyForm" (ngSubmit)="rentProperty()">
+    <div>
+        <h2>Ver propiedad</h2>
+
+        <!-- Campo de nombre -->
+        <div>
+            <label for="name">Nombre (obligatorio):</label>
+            <input type="text" id="name" formControlName="name" readonly />
+            <!-- Mensaje de error -->
+        </div>
+
+
+        <!-- Campo de municipio -->
+        <div>
+            <label for="municipality">Municipio (obligatorio):</label>
+            <input type="text" id="municipality" formControlName="municipalityName" readonly/>
+        </div>
+
+        <!-- Campo de descripción -->
+        <div>
+            <label for="description">Descripción (obligatorio):</label>
+            <textarea id="description" formControlName="description" readonly></textarea>
+        </div>
+
+        <!-- Campo de cantidad de habitaciones -->
+        <div>
+            <label for="rooms">Cantidad de habitaciones (obligatorio):</label>
+            <input type="number" id="rooms" formControlName="rooms" min="1" readonly />
+        </div>
+
+        <!-- Campo de cantidad de baños -->
+        <div>
+            <label for="bathrooms">Cantidad de baños (obligatorio):</label>
+            <input type="number" id="bathrooms" formControlName="bathrooms" min="1" readonly />
+        </div>
+
+        <!-- Campo de permitir mascotas -->
+        <div>
+            <label for="petFriendly">Permite mascotas:</label>
+            <input type="checkbox" id="petFriendly" formControlName="petFriendly" readonly />
+        </div>
+
+        <!-- Campo de piscina -->
+        <div>
+            <label for="pool">Tiene piscina:</label>
+            <input type="checkbox" id="pool" formControlName="pool" readonly />
+        </div>
+
+        <!-- Campo de asador -->
+        <div>
+            <label for="bbq">Tiene asador:</label>
+            <input type="checkbox" id="bbq" formControlName="bbq" readonly/>
+        </div>
+
+        <!-- Campo de valor por noche -->
+        <div>
+            <label for="pricePerNight">Valor por noche:</label>
+            <input type="number" id="pricePerNight" formControlName="pricePerNight" min="0" readonly />
+        </div>
+    </div>
+    <!-- Botón de enviar -->
+    <div>
+        <button type="submit">Rentar propiedad</button>
+    </div>
+</form>

@@ -1,0 +1,81 @@
+.btn {
+    margin: 20px auto; /* Add margin to top and bottom, auto for left/right */
+  }
+  /* Estilos para el contenedor principal */
+.container {
+    display: fixed;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjust as needed (space-between, space-evenly) */
+    padding: 20px; /* Adjust padding if needed */
+  }
+  
+  /* Estilos para el título */
+  h2 {
+    margin-bottom: 40px;
+  }
+  
+  /* Estilos para la tarjeta de propiedad */
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  
+  /* Estilos para la imagen de la propiedad */
+  .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  /* Estilos para el título de la propiedad */
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para los enlaces de editar y ver detalles */
+  .card-link {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  /* Estilos para los botones de editar y ver detalles */
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn {
+    width: 120px;
+    height: 40px;
+    
+    font-size: 14px;
+    background-color: #007bff; /* Changed background color */
+    color: #fff; /* Changed text color */
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.4s;
+    white-space: nowrap; /* Prevent wrapping of text */
+    overflow: hidden; /* Hide overflowed text */
+    text-overflow: ellipsis; /* Display ellipsis when text overflows */
+  }
+  
+  .btn:hover {
+    background-color: #073b4c; /* Changed hover color */
+  }
+  
+  /* Propiedades del card */
+  .property-card {
+    border: 1px solid #ccc; /* Added border */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    background-color: #27262E; /* Added background color */
+    flex: 0 0 calc(50% - 50px);
+    max-width: 410px; /* Adjust as needed for desired fixed width */
+    
+  }
+  

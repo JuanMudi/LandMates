@@ -1,0 +1,63 @@
+/* Estilo para el formulario en modo oscuro */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #222; /* Color de fondo oscuro */
+    color: #fff; /* Color de texto claro */
+    border-radius: 10px;
+  }
+  
+  /* Estilo para los títulos */
+  h2 {
+    margin-bottom: 20px;
+    color: #fff; /* Color de texto claro */
+  }
+  
+  /* Estilo para los campos de entrada */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444; /* Borde oscuro */
+    border-radius: 5px;
+    background-color: #333; /* Color de fondo más oscuro */
+    color: #fff; /* Color de texto claro */
+    box-sizing: border-box;
+  }
+  
+  /* Estilo para los campos de checkbox */
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  /* Estilo para el botón */
+  button[type="submit"] {
+    background-color: #4caf50; /* Color de botón verde */
+    color: #fff; /* Color de texto claro */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049; /* Color de botón verde más oscuro al pasar el ratón */
+  }
+  
+  /* Estilo para el mensaje de error */
+  .error-message {
+    color: red;
+    margin-top: 1px;
+  }
+  
+  
