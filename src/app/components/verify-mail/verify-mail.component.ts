@@ -19,8 +19,9 @@ export class VerifyMailComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       const code = params['code'];
       console.log('Query parameter code:', code);
-      this.signUpService.verifyEmail(code)
-      this.router.navigate(['/login'])
+      this.signUpService.verifyEmail(code).subscribe(()=>
+        this.router.navigate(['/login']
+      ))
     });
   }
   
