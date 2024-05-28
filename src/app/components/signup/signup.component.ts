@@ -31,7 +31,7 @@ export class SignUpComponent {
       console.log(this.user);
       this.signup.signUp(this.user).subscribe(response => {
         if (response.status === 201) {
-          this.router.navigate(['/verify']);
+          this.router.navigate(['/check-mail']);
         }
         else
         {

@@ -16,6 +16,7 @@ import { VerifyComponent } from './components/signup/verify/verify/verify.compon
 import { PropertyDetailsComponent } from './components/property-details/property-details.component';
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
 import { TeamComponent } from './components/team/team.component';
+import { VerifyMailComponent } from './components/verify-mail/verify-mail.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/homepage', pathMatch: 'full'},
@@ -30,10 +31,11 @@ export const routes: Routes = [
     {path: 'bookings', component: MyRequestComponent, canActivate: [() => inject(AuthGuard).canActivate()]},
     {path: 'checkout', component: CheckoutComponent, canActivate: [() => inject(AuthGuard).canActivate()]},
     {path: 'ranking', component: RankingComponent, canActivate: [() => inject(AuthGuard).canActivate()]},
-    {path: 'verify', component: VerifyComponent},
+    {path: 'check-mail', component: VerifyComponent},
     {path: 'property-details', component: PropertyDetailsComponent, canActivate: [() => inject(AuthGuard).canActivate()]},
     {path: 'edit-property', component: EditPropertyComponent, canActivate: [() => inject(AuthGuard).canActivate()]},
-    {path: 'team', component: TeamComponent}
+    {path: 'team', component: TeamComponent},
+    {path: 'verify', component: VerifyMailComponent}
 
     
 
