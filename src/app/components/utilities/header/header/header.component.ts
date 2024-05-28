@@ -20,8 +20,12 @@ export class HeaderComponent {
 
 
   ngOnInit(): void {
-    if (this.auth.isLoggedIn()) {
+    if (sessionStorage.getItem('token')) {
       this.headerService.setHeaderState(true);
+    }
+    else
+    {
+      this.headerService.setHeaderState(false);
     }
     this.headerService.headerState$.subscribe(state => {
       this.headerState = state;
