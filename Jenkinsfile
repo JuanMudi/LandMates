@@ -34,6 +34,7 @@ pipeline {
                     sh """
                     sudo rm -rf ${env.NGINX_DIR}/*
                     sudo tar -xzf ${env.APP_NAME}.tar.gz -C ${env.NGINX_DIR}
+                    
                     sudo systemctl restart nginx
                     """
                 }
