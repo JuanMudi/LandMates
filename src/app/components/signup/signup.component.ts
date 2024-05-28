@@ -4,11 +4,12 @@ import { HttpClientModule } from '@angular/common/http';  // Importa HttpClientM
 import { UserRegistration } from '../../models/user/user-registration';
 import { SignupService } from '../../services/auth/signup/signup.service';
 import { Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [FormsModule, HttpClientModule],
+  imports: [FormsModule, HttpClientModule, ReactiveFormsModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
@@ -27,9 +28,17 @@ export class SignUpComponent {
 
 
     signUp() {
-      this.signup.signUp(this.user)
-      this.signup.verifyEmail(this.user.email);
-      this.router.navigate(['/verify']);
+      console.log(this.user);
+      this.signup.signUp(this.user).subscribe(response => {
+        if (response.status === 201) {
+          this.router.navigate(['/verify']);
+        }
+        else
+        {
+          alert('Error al registrar el usuario');
+        }
+      });
+
       
   }
 }
