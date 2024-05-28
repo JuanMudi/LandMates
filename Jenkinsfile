@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SSH_CREDENTIALS_ID = 'ssh-credentials-id' // Reemplaza esto con el ID de tus credenciales SSH en Jenkins
+        SSH_CREDENTIALS_ID = 'ssh-credentials-ida' // Reemplaza esto con el ID de tus credenciales SSH en Jenkins
         SERVER_IP = 'your.server.ip' // Reemplaza esto con la IP de tu servidor
         SERVER_USER = 'your-server-user' // Reemplaza esto con el usuario de tu servidor
         APP_NAME = 'your-angular-app' // Reemplaza esto con el nombre de tu aplicación Angular
