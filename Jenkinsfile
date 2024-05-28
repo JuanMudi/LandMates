@@ -8,9 +8,7 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps {
-                git 'https://github.com/JuanMudi/LandMates.git' // Reemplaza con tu repositorio de GitHub
-            }
+            checkout scm
         }
 
         stage('Build Angular App') {
