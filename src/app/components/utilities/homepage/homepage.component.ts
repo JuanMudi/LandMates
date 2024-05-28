@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HeaderService } from '../../../services/header.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,6 +8,18 @@ import { Component } from '@angular/core';
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
-export class HomepageComponent {
+export class HomepageComponent implements OnInit{
+  
+    constructor(private headerService: HeaderService) { }
+  
+    ngOnInit(): void {
+      if (sessionStorage.getItem('token')) {
+        this.headerService.setHeaderState(true);
+      }
+      else {
+        this.headerService.setHeaderState(false);
+      }
+    }
+
 
 }
