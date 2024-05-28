@@ -18,6 +18,6 @@ export class SignupService {
     return this.http.post<any>(`${this.apiUrl}/auth/signup`, user, { observe: 'response' });
   }
   verifyEmail(email: string): Observable<any> {
-    return this.http.get<boolean>(`${this.apiUrl}/auth/requestverify?email=${email}`)
+    return this.http.get<boolean>(`${this.apiUrl}/auth/requestverify?code=${email}`)
   }
 }
